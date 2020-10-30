@@ -140,7 +140,7 @@ public class MenuList {
         }   while (choice <1 || choice > 3);
         return role;
     }
-
+//https://www.softwaretestinghelp.com/array-of-objects-in-java/
     public static void newEmployee() {
         String department = employeeDepartment();
         String role = "";
