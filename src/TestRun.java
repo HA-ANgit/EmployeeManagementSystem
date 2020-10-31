@@ -6,11 +6,15 @@ public class TestRun {
 
     public static void main(String[] args) {
         do {    //Testar lite olika metoder
+            Employees[] employees = new Employees[99];
+            int i = 0;
             MenuList.welcome();
-            Employees m1 = new Employees("Hannes", "Andersson", "Male", "The Board", "CEO", 930621, 1001, 88600 );
-            Managers m2 = new Managers();
-            System.out.println("Name: " + m1.getFirstName() + " " + m1.getLastName() + "\tGender: " + m1.getGender() + "\tDepartment: " + m1.getDepartment() + "\tRole: " + m1.getRole() + "\t\t\tDate of birth: " + m1.getDateOfBirth() + "\tEmployment ID: " + m1.getEmployeeID() + "\tSalary: " + m1.getSalary() + "\tWorking department: " + m1.getClass());
-            System.out.println("Name: " + m2.getFirstName() + " " + m2.getLastName() + "\tGender: " + m2.getGender() + "\tDepartment: " + m2.getDepartment() + "\tRole: " + m2.getRole() + "\t\tDate of birth: " + m2.getDateOfBirth() + "\tEmployment ID: " + m2.getEmployeeID() + "\tSalary: " + m2.getSalary() + "\tWorking department: " + m2.getClass());
+            employees[i] = new Employees(lineInputMethod(), "Andersson", "Male", "The Board", "CEO", 930621, 1001, 88600 );
+            System.out.println("Name: " + employees[i].getFirstName() + " " + employees[i].getLastName() + "\tGender: " + employees[i].getGender() + "\tDepartment: " + employees[i].getDepartment() + "\tRole: " + employees[i].getRole() + "\t\t\tDate of birth: " + employees[i].getDateOfBirth() + "\tEmployment ID: " + employees[i].getEmployeeID() + "\tSalary: " + employees[i].getSalary() + "\tWorking department: " + employees[i].getClass());
+            i++;
+            employees[i] = new Managers();
+            System.out.println("Name: " + employees[i].getFirstName() + " " + employees[i].getLastName() + "\tGender: " + employees[i].getGender() + "\tDepartment: " + employees[i].getDepartment() + "\tRole: " + employees[i].getRole() + "\t\tDate of birth: " + employees[i].getDateOfBirth() + "\tEmployment ID: " + employees[i].getEmployeeID() + "\tSalary: " + employees[i].getSalary() + "\tWorking department: " + employees[i].getClass());
+            i++;
                 //Prövar alla menyer
             MenuList.menuMain();
             MenuList.menuManage();
