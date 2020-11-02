@@ -1,5 +1,5 @@
 public class UniqueID {
-    private static int id = 1004;
+    private static int id = 8;
 
     public static int nextID(){
         return id++;

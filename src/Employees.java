@@ -1,4 +1,4 @@
-public class Employees implements Specifics {
+public class Employees{
     protected String firstName;
     protected String lastName;
     protected String gender;
@@ -30,6 +30,13 @@ public class Employees implements Specifics {
         this.dateOfBirth = dateOfBirth;
         this.employeeID = employeeID;
         this.salary = salary;
+    }
+    public double getBonus(int salary){ //Allmän bonus för employees
+        return .01 * salary;
+    }
+
+    public String toString(){
+        return "Name: " + firstName + " " + lastName + "\t\tGender: " + gender + "\tDepartment: " + department + "\tRole: " + role + "\t\tDate of birth: " + dateOfBirth + "\tEmployment ID: " + employeeID + "\tSalary: " + salary;
     }
 
     //Här startar getter & setter

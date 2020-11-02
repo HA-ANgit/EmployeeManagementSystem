@@ -1,19 +1,18 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class EmpManage {
 
     static ArrayList<Employees> employees = new ArrayList<>();
-    //Adderar databas
+    //Adderar databas med anställda
     public static void addRegister(){
-        Employees e1 = new Employees("Hannes", "Andersson", "Male", "Management", "CEO", 930111, 1001, 88600 );
-        Employees e2 = new Managers("Gusten", "Volge", "Male", "Management", "Head of Managers", 702431, 1000, 64000);
-        Employees e3 = new Secretaries("Salvador", "De La Gardie", "Male", "Management", "Head of Secretary", 870631, 999, 32000);
-        Employees e4 = new Programmers("Ana", "Frisk", "Female", "Development", "Head of Programmers", 900426, 998, 57000);
-        Employees e5 = new Technicians("Sofie", "Bonde", "Female", "Development", "Head of Tech", 890412, 997, 45000);
-        Employees e6 = new Managers("Ylva", "Samuelsson", "Female", "Management", "Head of Managers", 920314, 1002, 32800);
-        Employees e7 = new Managers("Niklas", "Risk", "Male", "Management", "Head of Managers", 930009, 1003, 31900);
+        Employees e1 = new Employees("Hannes", "Andersson  ", "Male", "Management", "CEO\t\t\t\t", 930111, 1, 88600);
+        Employees e2 = new Managers("Alexander", "Östlund ", "Male", "Management", "Head of Managers\t", 702431, 2, 64000);
+        Employees e3 = new Secretaries("Salvador", "De Gardie", "Male", "Management", "Head of Secretary\t", 870631, 3, 32000);
+        Employees e4 = new Programmers("Ane-Li", "Frisk Bonde", "Female", "Development", "Head of Programmers", 900426, 4, 57000);
+        Employees e5 = new Technicians("Sofie", "Abrahamsson ", "Female", "Development", "Head of Tech\t\t", 890412, 5, 45000);
+        Employees e6 = new Managers("Ylva von", "Samuelsson", "Female", "Management", "Manager\t\t\t", 920314, 6, 32800);
+        Employees e7 = new Managers("Peter-Niklas", "Risk  ", "Male", "Management", "Manager\t\t\t", 930009, 7, 31900);
         employees.add(e1);
         employees.add(e2);
         employees.add(e3);
@@ -22,7 +21,7 @@ public class EmpManage {
         employees.add(e6);
         employees.add(e7);
     }
-    //Metoden för att addera anställd
+    //Metoden för att addera ny anställd
     public static void newEmployee(){
         String department = MenuList.employeeDepartment();
         String role = "";
@@ -92,7 +91,7 @@ public class EmpManage {
         }
         MenuList.menuManage();
     }
-    //Metoden för att avskeda anställd efter namn
+    //Undermeny för att avskeda anställd efter namn
     public static void removeEmployeeName(){
         System.out.println("Enter name to fire employee: ");
         String name = TestRun.lineInputMethod();
@@ -105,19 +104,16 @@ public class EmpManage {
             }
         }
     }
-    //Metoden som avskedar anställd efter ID
+    //Undermeny som avskedar anställd efter ID
     public static void removeEmployeeId(){
         System.out.println("Enter ID to fire employee: ");
         int iD = TestRun.intInputMethod();
 
-        for (int i = employees.size() -1; i >= 0; i--) {
-
+        for (int i = employees.size() -1 ; i >= 0; i--) {
             if (employees.get(i).getEmployeeID() == iD){
-                System.out.println(employees);
+                System.out.println(employees.get(i));
                 System.out.println("Has been fired!");
                 employees.remove(employees.get(i));
-            }else {
-                System.out.println("Employee ID not found!");
             }
         }
     }
@@ -126,18 +122,31 @@ public class EmpManage {
         System.out.println("Enter ID for Employee: ");
         int iD = TestRun.intInputMethod();
 
+/*        for (int i = employees.size() -1 ; i >= 0; i--) {
+            if (employees.get(i).getEmployeeID() == iD){
+                System.out.println(employees.get(i).toString());
+                System.out.println("Updating name of: " + employees.get(i).toString());
+                System.out.println("Update First Name: ");
+                String newName = TestRun.lineInputMethod();
+                employees.get(i).setFirstName(newName);
+                System.out.println("Update Last Name: ");
+                String newLast = TestRun.lineInputMethod();
+                employees.get(i).setLastName(newLast);
+                System.out.println("Update Successful for: " + employees.get(i).toString());
+            }
+            MenuList.menuManage();
+        }*/
+
         for (Employees employees : employees) {
             if (employees.getEmployeeID() == iD){
+                System.out.println("Updating name of: " + employees.toString());
                 System.out.println("Update First Name: ");
                 String newName = TestRun.lineInputMethod();
                 employees.setFirstName(newName);
                 System.out.println("Update Last Name: ");
                 String newLast = TestRun.lineInputMethod();
                 employees.setLastName(newLast);
-                System.out.println("Employee is now updated as: " + "Name: " + employees.getFirstName() + " " + employees.getLastName() + "\tGender: " + employees.getGender() + "\tDepartment: " + employees.getDepartment() + "\tRole: " + employees.getRole() + "\t\t\tDate of birth: " + employees.getDateOfBirth() + "\tEmployment ID: " + employees.getEmployeeID() + "\tSalary: " + employees.getSalary());
-            }else{
-                System.out.println("Employee ID not found!");
-
+                System.out.println("Update Successful for: " + employees.toString());
             }
             MenuList.menuManage();
         }
@@ -234,14 +243,12 @@ public class EmpManage {
     //Metoden för att visa alla anställda
     public static void showAllEmp(){
         System.out.println("Total number of employees: " + employees.size());
-        System.out.println("All employees: " + Arrays.toString(employees.toArray()));
+        System.out.println("All employees: ");
+        for (Employees employees : employees) {
+            System.out.println(employees);
+        }
         /*Arrays.sort(employees);
         showData(employees());*/
         MenuList.menuManage();
-    }
-
-    public static void showData(){
-        System.out.println(Arrays.toString(employees.toArray()));
-        System.out.println();
     }
 }

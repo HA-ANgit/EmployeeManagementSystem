@@ -10,7 +10,7 @@ public class TestRun {
             EmpManage.addRegister();
             MenuList.welcome();
             MenuList.menuMain();
-            //Prövar menyer
+            //Prövar div menyer
             //MenuList.menuManage();
             //MenuList.menuStats();
             //Tillfällig loop-avbrytare
