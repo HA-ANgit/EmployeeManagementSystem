@@ -46,22 +46,46 @@ public class MenuList {
         System.out.println("\t\t[8] - Search employee by id");
         System.out.println("\t\t[9] - Search employee by department");
         System.out.println("\t\t[10] - Display all employees");
-        System.out.println("\t\t[0] - Exit");
+        System.out.println("\t\t[0] - Go Back!");
         System.out.println("\nChoose: ");
         int choice2 = TestRun.intInputMethod();
         switch (choice2) {
             case 1:
                 System.out.println("Registering new employee...");
-                newEmployee();
+                EmpManage.newEmployee();
                 break;
             case 2:
-                menuStats();
+                EmpManage.removeEmployee();
+                break;
+            case 3:
+                EmpManage.updateEmpName();
+                break;
+            case 4:
+                EmpManage.updateEmpAge();
+                break;
+            case 5:
+                EmpManage.updateEmpDep();
+                break;
+            case 6:
+                EmpManage.updateEmpSal();
+                break;
+            case 7:
+                EmpManage.showEmpName();
+                break;
+            case 8:
+                EmpManage.showEmpId();
+                break;
+            case 9:
+                EmpManage.showEmpDep();
+                break;
+            case 10:
+                EmpManage.showAllEmp();
                 break;
             case 0:
-                exit();
+                menuMain();
                 break;
             default:
-                System.out.println("Please enter [1] or [2]");
+                System.out.println("Please enter [1] - [10]");
         }
     }
 
@@ -77,8 +101,8 @@ public class MenuList {
         System.out.println("\t\t[6] - Employee percentage of all departments");
         System.out.println("\t\t[0] - Exit");
         System.out.println("\nChoose: ");
-        int choice3 = TestRun.intInputMethod();
-        return choice3;
+        int choice = TestRun.intInputMethod();
+        return choice;
     }
 
     //Frågar användaren vilken avdelning | Fortsätter sedan att fråga om roll i vald avdelning
@@ -117,7 +141,7 @@ public class MenuList {
             } else {                        //Exception
                 System.out.println("Please enter [1] or [2]");
             }
-        }   while (choice <1 || choice > 3);
+        }   while (choice <1 || choice > 2);
         return role;
     }
 
@@ -137,35 +161,8 @@ public class MenuList {
             } else {                        //Exception
                 System.out.println("Please enter [1] or [2]");
             }
-        }   while (choice <1 || choice > 3);
+        }   while (choice <1 || choice > 2);
         return role;
-    }
-//https://www.softwaretestinghelp.com/array-of-objects-in-java/
-    public static void newEmployee() {
-        String department = employeeDepartment();
-        String role = "";
-        if (department.equals("Management")){
-            role = employeeManagement();
-        } else if (department.equals("Development")){
-            role = employeeDevelopment();
-        }
-        int employeeID = UniqueID.nextID();
-        System.out.println("First name of new employee?");
-        String firstName = TestRun.lineInputMethod();
-        System.out.println("Last name of employee?");
-        String lastName = TestRun.lineInputMethod();
-        System.out.println("What gender is the new employee? (Male/Female)");
-        String gender = TestRun.lineInputMethod();
-        int dateOfBirth;
-        do {
-            System.out.println("Date of birth of the new employee? (YY/MM/DD)");
-            dateOfBirth = TestRun.intInputMethod();
-        } while (Integer.toString(dateOfBirth).length()!=6);
-        System.out.println("Salary of new employee?");
-        int salary = TestRun.intInputMethod();
-        System.out.println("Success! New employee has been added to your database.");
-        Employees m3 = new Employees(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary);
-        System.out.println("Name: " + m3.getFirstName() + " " + m3.getLastName() + "\tGender: " + m3.getGender() + "\tDepartment: " + m3.getDepartment() + "\tRole: " + m3.getRole() + "\t\t\tDate of birth: " + m3.getDateOfBirth() + "\tEmployment ID: " + m3.getEmployeeID() + "\tSalary: " + m3.getSalary() + "\tWorking department: " + m3.getClass());
     }
 
     public static void exit() {

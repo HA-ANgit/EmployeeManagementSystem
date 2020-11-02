@@ -1,12 +1,12 @@
 public class Employees implements Specifics {
-    private String firstName;
-    private String lastName;
-    private String gender;
-    private String department;
-    private String role;
-    private int dateOfBirth;  //Detta önskas skapa med en int array om möjligt till 3 int[][][]-värden (Y/M/D)
-    private int employeeID;
-    private int salary;
+    protected String firstName;
+    protected String lastName;
+    protected String gender;
+    protected String department;
+    protected String role;
+    protected int dateOfBirth;  //Detta önskas skapa med en int array om möjligt till 3 int[][][]-värden (Y/M/D)
+    protected int employeeID;
+    protected int salary;
 
     public void licence(){
         System.out.println("Possesses a driving licence");
@@ -29,7 +29,6 @@ public class Employees implements Specifics {
         this.role = role;
         this.dateOfBirth = dateOfBirth;
         this.employeeID = employeeID;
-        //employeeID++;
         this.salary = salary;
     }
 

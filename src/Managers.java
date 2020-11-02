@@ -1,10 +1,7 @@
 public class Managers extends Employees{
     private String role = "Manager";
-    Managers (){
-        super("William", "Hoover", "Male", "Management", "Head Manager", 940913, 2, 38000);
-        System.out.println("Added: " + role);
+
+    public Managers(String firstName, String lastName, String gender, String department, String role, int dateOfBirth, int employeeID, int salary) {
+        super(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary);
     }
-
-
-    //public static int choice(){}
 }
