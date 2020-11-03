@@ -1,9 +1,15 @@
 interface Specifics {
-    //Tillfälligt interface
-    public void licence();      //Possess a driving licence
 
-    public void laptop();       //Owns a laptop
+    public static boolean licence()      //Possess a driving licence
+    {
+        return false;
+    }
 
-    public void coFounder();    //Is a cofounder
+    public static boolean laptop()      //Possess a driving licence
+    {
+        return false;
+    }      //Owns a laptop
+
+    public void coFounder();    //Is a co-founder
 
 }

@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class EmpManage {
@@ -6,13 +5,21 @@ public class EmpManage {
     static ArrayList<Employees> employees = new ArrayList<>();
     //Adderar databas med anställda
     public static void addRegister(){
-        Employees e1 = new Employees("Hannes", "Andersson  ", "Male", "Management", "CEO\t\t\t\t", 930111, 1, 88600);
-        Employees e2 = new Managers("Alexander", "Östlund ", "Male", "Management", "Head of Managers\t", 702431, 2, 64000);
-        Employees e3 = new Secretaries("Salvador", "De Gardie", "Male", "Management", "Head of Secretary\t", 870631, 3, 32000);
-        Employees e4 = new Programmers("Ane-Li", "Frisk Bonde", "Female", "Development", "Head of Programmers", 900426, 4, 57000);
-        Employees e5 = new Technicians("Sofie", "Abrahamsson ", "Female", "Development", "Head of Tech\t\t", 890412, 5, 45000);
-        Employees e6 = new Managers("Ylva von", "Samuelsson", "Female", "Management", "Manager\t\t\t", 920314, 6, 32800);
-        Employees e7 = new Managers("Peter-Niklas", "Risk  ", "Male", "Management", "Manager\t\t\t", 930009, 7, 31900);
+        Employees e1 = new Employees("Hannes", "Andersson  ", "Male", "Management", "CEO\t\t\t\t", 930111, UniqueID.nextID(), 88600, true, true, true);
+        Employees e2 = new Managers("Alexander", "Östlund ", "Male", "Management", "Head of Managers\t", 702431, UniqueID.nextID(), 64000, true, true, true);
+        Employees e3 = new Secretaries("Salvador", "De Gardie", "Male", "Management", "Head of Secretary\t", 870631, UniqueID.nextID(), 32000, true, true, false);
+        Employees e4 = new Programmers("Ane-Li", "Frisk Bonde", "Female", "Development", "Head of Programmers", 900426, UniqueID.nextID(), 57000, false, true, true);
+        Employees e5 = new Technicians("Sofie", "Abrahamsson ", "Female", "Development", "Head of Tech\t\t", 890412, UniqueID.nextID(), 45000, false, true, false);
+        Employees e6 = new Managers("Ylva von", "Samuelsson", "Female", "Management", "Manager\t\t\t", 920314, UniqueID.nextID(), 32800, false, true, false);
+        Employees e7 = new Managers("Peter-Niklas", "Risk  ", "Male", "Management", "Manager\t\t\t", 930009, UniqueID.nextID(), 31900, false, true, false);
+        Employees e8 = new Secretaries("Peter", "Oxenstjärna  ", "Male", "Management", "Secretary\t\t\t", 800703, UniqueID.nextID(), 30850, true, false, false);
+        Employees e9 = new Programmers("Ola-Tore", "Lavender  ", "Male", "Development", "Programmer\t\t", 881009, UniqueID.nextID(), 37200, true, true, false);
+        Employees e10 = new Technicians("Anna-Karin", "Samuelsson", "Female", "Development", "Technician\t\t", 920314, UniqueID.nextID(), 36400, true, true, false);
+        Employees e11 = new Technicians("Robert Ludvig", "Stolt", "Male", "Management", "Technician\t\t", 691129, UniqueID.nextID(), 48600, true, false, false);
+        Employees e12 = new Managers("Alexandra", "Björk   ", "Female", "Management", "CCO\t\t\t\t", 790221, UniqueID.nextID(), 84000, false, true, false);
+        Employees e13 = new Secretaries("Tim", "Pålsson        ", "Male", "Management", "Secretary\t\t\t", 890221, UniqueID.nextID(), 42000,false, true, false);
+        Employees e14 = new Technicians("Olga", "Debrawski    ", "Female", "Development", "Technician\t\t", 950406, UniqueID.nextID(), 52300,false, false, true);
+
         employees.add(e1);
         employees.add(e2);
         employees.add(e3);
@@ -20,7 +27,15 @@ public class EmpManage {
         employees.add(e5);
         employees.add(e6);
         employees.add(e7);
+        employees.add(e8);
+        employees.add(e9);
+        employees.add(e10);
+        employees.add(e11);
+        employees.add(e12);
+        employees.add(e13);
+        employees.add(e14);
     }
+
     //Metoden för att addera ny anställd
     public static void newEmployee(){
         String department = MenuList.employeeDepartment();
@@ -46,28 +61,29 @@ public class EmpManage {
         int salary = TestRun.intInputMethod();
         System.out.println("Success! New " + role + " has been added to your database.");
         if (role.equalsIgnoreCase("Manager")){
-            Employees i = new Managers(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary);
-            System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tWorking department: " + i.getClass());
+            Employees i = new Managers(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary, false, false, false);
+            System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tDebug class: " + i.getClass());
             employees.add(i);
         } else if (role.equalsIgnoreCase("Secretary")){
-            Employees i = new Secretaries(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary);
-            System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tWorking department: " + i.getClass());
+            Employees i = new Secretaries(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary,false, false, false);
+            System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tDebug class: " + i.getClass());
             employees.add(i);
-        } else if (role.equalsIgnoreCase("Technicians")){
-            Employees i = new Technicians(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary);
-            System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tWorking department: " + i.getClass());
+        } else if (role.equalsIgnoreCase("Technician")){
+            Employees i = new Technicians(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary,false, false, false);
+            System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tDebug class: " + i.getClass());
             employees.add(i);
         } else if (role.equalsIgnoreCase("Programmer")){
-            Employees i = new Programmers(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary);
-            System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tWorking department: " + i.getClass());
+            Employees i = new Programmers(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary,false, false, false);
+            System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tDebug class: " + i.getClass());
             employees.add(i);
         } else {
-            Employees i = new Employees(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary);
+            Employees i = new Employees(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary, false, false, false);
             System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tWorking department: " + i.getClass());
             employees.add(i);
         }
         MenuList.menuManage();
     }
+
     //Huvudmenyn för att avskeda
     public static void removeEmployee(){
         System.out.println("\t\t[1] - Remove Employee by ID");
@@ -91,6 +107,7 @@ public class EmpManage {
         }
         MenuList.menuManage();
     }
+
     //Undermeny för att avskeda anställd efter namn
     public static void removeEmployeeName(){
         System.out.println("Enter name to fire employee: ");
@@ -98,12 +115,13 @@ public class EmpManage {
 
         for (int i = employees.size() -1; i >= 0; i--) {
             if (employees.get(i).getFirstName().equalsIgnoreCase(name)){
-                System.out.println("Employee: " + employees.get(i).toString());
+                System.out.println("Employee: \n" + employees.get(i).toString());
                 System.out.println("Has been fired!");
                 employees.remove(employees.get(i));
             }
         }
     }
+
     //Undermeny som avskedar anställd efter ID
     public static void removeEmployeeId(){
         System.out.println("Enter ID to fire employee: ");
@@ -117,138 +135,173 @@ public class EmpManage {
             }
         }
     }
+
     //Metoden för att uppdatera Namn på en anställd
-    public static void updateEmpName(){
+    public static void updateEmpName() {
         System.out.println("Enter ID for Employee: ");
         int iD = TestRun.intInputMethod();
 
-/*        for (int i = employees.size() -1 ; i >= 0; i--) {
-            if (employees.get(i).getEmployeeID() == iD){
-                System.out.println(employees.get(i).toString());
-                System.out.println("Updating name of: " + employees.get(i).toString());
+        for (int i = employees.size() - 1; i >= 0; i--) {
+            if (employees.get(i).getEmployeeID() == iD) {
+                System.out.println("Updating name of: \n" + employees.get(i).toString());
                 System.out.println("Update First Name: ");
                 String newName = TestRun.lineInputMethod();
                 employees.get(i).setFirstName(newName);
-                System.out.println("Update Last Name: ");
+                System.out.println("Update Last name: ");
                 String newLast = TestRun.lineInputMethod();
                 employees.get(i).setLastName(newLast);
-                System.out.println("Update Successful for: " + employees.get(i).toString());
+                System.out.println("Update successful for: \n" + employees.get(i).toString());
             }
-            MenuList.menuManage();
-        }*/
-
-        for (Employees employees : employees) {
-            if (employees.getEmployeeID() == iD){
-                System.out.println("Updating name of: " + employees.toString());
-                System.out.println("Update First Name: ");
-                String newName = TestRun.lineInputMethod();
-                employees.setFirstName(newName);
-                System.out.println("Update Last Name: ");
-                String newLast = TestRun.lineInputMethod();
-                employees.setLastName(newLast);
-                System.out.println("Update Successful for: " + employees.toString());
-            }
-            MenuList.menuManage();
         }
+        MenuList.menuManage();
     }
+
     //Metoden för att uppdatera Ålder på en anställd
-    public static void updateEmpAge(){
+    public static void updateEmpAge() {
         System.out.println("Enter ID for Employee: ");
         int iD = TestRun.intInputMethod();
-        for (Employees employees : employees) {
-            if (employees.getEmployeeID() == iD){
+
+        for (int i = employees.size() - 1; i >= 0; i--) {
+            if (employees.get(i).getEmployeeID() == iD) {
                 do {
+                    System.out.println("Updating date of birth of: \n" + employees.get(i).toString());
                     System.out.println("Enter new age(YY/MM/DD): ");
                     int newAge = TestRun.intInputMethod();
-                    employees.setDateOfBirth(newAge);
-                } while (Integer.toString(employees.getDateOfBirth()).length()!=6);
-                System.out.println("Employee is now updated as: " + employees);
-            }else{
-                System.out.println("Employee ID not found!");
+                    employees.get(i).setDateOfBirth(newAge);
+                } while (Integer.toString(employees.get(i).getDateOfBirth()).length() != 6);
+                System.out.println("Employee is now updated as: \n" + employees.get(i).toString());
             }
-            MenuList.menuManage();
         }
+        MenuList.menuManage();
     }
+
     //Metoden för att uppdatera avdelning för en anställd
-    public static void updateEmpDep(){
+    public static void updateEmpDep() {
         System.out.println("Enter ID for Employee: ");
         int iD = TestRun.intInputMethod();
-        for (Employees employees : employees) {
 
-            if (employees.getEmployeeID() == iD) {
-                System.out.println("Update department for: " + iD);
-                employees.setDepartment(MenuList.employeeDepartment());
-            }else{
-                System.out.println("Employee ID not found!");
+        for (int i = employees.size() - 1; i >= 0; i--) {
+            if (employees.get(i).getEmployeeID() == iD) {
+                System.out.println("Update department for: \n" + employees.get(i).toString());
+                employees.get(i).setDepartment(MenuList.employeeDepartment());
             }
-            MenuList.menuManage();
         }
+        MenuList.menuManage();
     }
+
     //Metoden för att uppdatera lönen för en anställd
-    public static void updateEmpSal(){
+    public static void updateEmpSal() {
         System.out.println("Enter ID for Employee: ");
         int iD = TestRun.intInputMethod();
-        for (Employees employees : employees) {
-            if (employees.getEmployeeID() == iD) {
-                System.out.println("Update salary for: " + iD);
-                System.out.println("Enter:");
-                employees.setSalary(TestRun.intInputMethod());
-            }else{
-                System.out.println("Employee ID not found!");
-            }
-            MenuList.menuManage();
-        }
-    }
-    //Metoden som söker anställd efter ID
-    public static void showEmpId(){
-        System.out.println("Search Employee by ID: ");
-        int empId = TestRun.intInputMethod();
 
-        for (Employees employees : employees) {
-            if (employees.getEmployeeID() == empId) {
-                System.out.println("Result from ID-Search: " + empId);
-            }else{
-                System.out.println("Employee ID not found!");
+        for (int i = employees.size() - 1; i >= 0; i--) {
+            if (employees.get(i).getEmployeeID() == iD) {
+                System.out.println("Update salary for: \n" + employees.get(i).toString());
+                System.out.println("Enter new salary:");
+                employees.get(i).setSalary(TestRun.intInputMethod());
+                System.out.println(employees.get(i).getFirstName() + " has gotten a new salary: " + employees.get(i).getSalary());
             }
-            MenuList.menuManage();
+
         }
+        MenuList.menuManage();
     }
+
+    //Metoden som söker anställd efter ID
+    public static void showEmpId() {
+        System.out.println("Search Employee by ID: ");
+        int iD = TestRun.intInputMethod();
+
+        for (int i = employees.size() - 1; i >= 0; i--) {
+            if (employees.get(i).getEmployeeID() == iD) {
+                System.out.println("Result from ID-Search: \n" + employees.get(i).toString());
+            }
+        }
+        MenuList.menuManage();
+
+    }
+
     //Metoden som söker anställd efter förnamn
-    public static void showEmpName(){
+    public static void showEmpName() {
         System.out.println("Search Employee by First Name: ");
         String empName = TestRun.lineInputMethod();
 
-        for (Employees employees : employees) {
-            if (employees.getFirstName().equals(empName)) {
-                System.out.println("Result from Name-Search: " + employees);
-            }else{
-                System.out.println("Employee not found!");
+        for (int i = employees.size() - 1; i >= 0; i--) {
+            if (employees.get(i).getFirstName().equalsIgnoreCase(empName)) {
+                System.out.println("Result from Name-Search: \n" + employees.get(i).toString());
             }
-            MenuList.menuManage();
         }
+        MenuList.menuManage();
     }
+
     //Metoden som söker anställd efter avdelning
-    public static void showEmpDep(){
+    public static void showEmpDep() {
         System.out.println("Search Employees by Department: ");
         String empDep = MenuList.employeeDepartment();
-        for (Employees employees : employees) {
-            if (employees.getDepartment().equals(empDep)) {
-                System.out.println("Result from Department Search: " + employees);
-            }else{
-                System.out.println("Error! Search not completed!");
+        System.out.println("Result from " + empDep + "-department Search: ");
+
+        for (int i = employees.size() - 1; i >= 0; i--) {
+            if (employees.get(i).getDepartment().equals(empDep)) {
+                System.out.println(employees.get(i).toString());
             }
-            MenuList.menuManage();
         }
+        MenuList.menuManage();
     }
+
     //Metoden för att visa alla anställda
     public static void showAllEmp(){
         System.out.println("Total number of employees: " + employees.size());
-        System.out.println("All employees: ");
+        System.out.println("All employees listed: ");
+
         for (Employees employees : employees) {
             System.out.println(employees);
         }
-        /*Arrays.sort(employees);
-        showData(employees());*/
         MenuList.menuManage();
     }
+
+    //Metoden som söker upp anställs specifikationer
+    public static void showSpecifics(){
+        System.out.println("Search Employee-Specifics by ID: ");
+        int iD = TestRun.intInputMethod();
+
+        for (int i = employees.size() - 1; i >= 0; i--) {
+            if (employees.get(i).getEmployeeID() == iD) {
+                System.out.println("Result from ID-Search: \n" + employees.get(i).toString());
+                System.out.println("Any specifics is added below: \n");
+                System.out.println("Driving Licence: " + employees.get(i).getLicence() + " | Laptop: " + employees.get(i).getLaptop() + " | Extra notes: " + employees.get(i).coFounder);
+            }
+            if (employees.get(i).getCoFounder()){
+                System.out.println(employees.get(i).coFounder);
+            }
+        }
+        MenuList.menuManage();
+    }
+
+    public static void addSpecifics(){
+        System.out.println("Search Employee by ID to add Specifics: ");
+        int iD = TestRun.intInputMethod();
+
+        for (int i = employees.size() - 1; i >= 0; i--) {
+            if (employees.get(i).getEmployeeID() == iD) {
+                System.out.println("Result from ID-Search: \n" + employees.get(i).toString());
+                String role = employees.get(i).getClass().descriptorString();
+                if (role.equalsIgnoreCase("LManagers;")){
+                    employees.get(i).setLicence(Managers.licence(MenuList.askLicence()));
+                    employees.get(i).setLaptop(Managers.laptop(MenuList.askLaptop()));
+                } else if (role.equalsIgnoreCase("LSecretaries;")){
+                    employees.get(i).setLicence(Secretaries.licence(MenuList.askLicence()));
+                    employees.get(i).setLaptop(Secretaries.laptop(MenuList.askLaptop()));
+                } else if (role.equalsIgnoreCase("LProgrammers;")){
+                    employees.get(i).setLicence(Programmers.licence(MenuList.askLicence()));
+                    employees.get(i).setLaptop(Programmers.laptop(MenuList.askLaptop()));
+                } else if (role.equalsIgnoreCase("LTechnicians;")){
+                    employees.get(i).setLicence(Technicians.licence(MenuList.askLicence()));
+                    employees.get(i).setLaptop(Technicians.laptop(MenuList.askLaptop()));
+                } else {
+                    System.out.println(employees.get(i).getFirstName() + " is a protected employee and can't be changed.");
+                }
+            }
+        }
+        MenuList.menuManage();
+    }
+
 }

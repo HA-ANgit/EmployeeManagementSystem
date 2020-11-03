@@ -29,6 +29,7 @@ public class MenuList {
                 break;
             default:
                 System.out.println("Please enter [1] or [2]");
+                menuMain();
         }
     }
 
@@ -42,14 +43,16 @@ public class MenuList {
         System.out.println("\t\t[4] - Update age of employee");
         System.out.println("\t\t[5] - Update department of employee");
         System.out.println("\t\t[6] - Update salary of employee");
-        System.out.println("\t\t[7] - Search employee by name");
-        System.out.println("\t\t[8] - Search employee by id");
-        System.out.println("\t\t[9] - Search employee by department");
-        System.out.println("\t\t[10] - Display all employees");
-        System.out.println("\t\t[0] - Go Back!");
+        System.out.println("\t\t[7] - Update specifics of employee");
+        System.out.println("\t\t[8] - Display specifics of employee");
+        System.out.println("\t\t[9] - Search employee by name");
+        System.out.println("\t\t[10] - Search employee by id");
+        System.out.println("\t\t[11] - Display employee by department");
+        System.out.println("\t\t[12] - Display all employees");
+        System.out.println("\t\t[0] - Go back to Main Menu!");
         System.out.println("\nChoose: ");
-        int choice2 = TestRun.intInputMethod();
-        switch (choice2) {
+        int choice = TestRun.intInputMethod();
+        switch (choice) {
             case 1:
                 System.out.println("Registering new employee...");
                 EmpManage.newEmployee();
@@ -70,15 +73,21 @@ public class MenuList {
                 EmpManage.updateEmpSal();
                 break;
             case 7:
-                EmpManage.showEmpName();
+                EmpManage.addSpecifics();
                 break;
             case 8:
-                EmpManage.showEmpId();
+                EmpManage.showSpecifics();
                 break;
             case 9:
-                EmpManage.showEmpDep();
+                EmpManage.showEmpName();
                 break;
             case 10:
+                EmpManage.showEmpId();
+                break;
+            case 11:
+                EmpManage.showEmpDep();
+                break;
+            case 12:
                 EmpManage.showAllEmp();
                 break;
             case 0:
@@ -86,10 +95,11 @@ public class MenuList {
                 break;
             default:
                 System.out.println("Please enter [1] - [10]");
+                menuManage();
         }
     }
 
-    public static int menuStats(){   //Statistik-menyn
+    public static void menuStats(){   //Statistik-menyn
         System.out.println("\n\t\t###############################");
         System.out.println("\t\t##==  EMPLOYEE STATISTICS  ==##");
         System.out.println("\t\t###############################");
@@ -99,10 +109,35 @@ public class MenuList {
         System.out.println("\t\t[4] - Total bonus");
         System.out.println("\t\t[5] - Gender percentage in the company");
         System.out.println("\t\t[6] - Employee percentage of all departments");
-        System.out.println("\t\t[0] - Exit");
+        System.out.println("\t\t[0] - Go back to Main Menu!");
         System.out.println("\nChoose: ");
         int choice = TestRun.intInputMethod();
-        return choice;
+        switch (choice) {
+            case 1:
+                EmpStat.avarageSalary();
+                break;
+            case 2:
+                EmpStat.highestSalary();
+                break;
+            case 3:
+                EmpStat.lowestSalary();
+                break;
+            case 4:
+                EmpStat.totalBonus();
+                break;
+            case 5:
+                EmpStat.genderPercentage();
+                break;
+            case 6:
+                EmpStat.depPercentage();
+                break;
+            case 0:
+                menuMain();
+                break;
+            default:
+                System.out.println("Please enter [1] - [6]");
+                menuStats();
+        }
     }
 
     //Frågar användaren vilken avdelning | Fortsätter sedan att fråga om roll i vald avdelning
@@ -165,6 +200,45 @@ public class MenuList {
         return role;
     }
 
+    public static boolean askLicence() {
+        boolean licence = false;
+        int choice;
+        do {
+            System.out.println("Possesses a Driving Licence:\n[1] - Yes\n[2] - No");
+            choice = TestRun.intInputMethod();
+            if (choice == 1){               //Yes
+                System.out.println("Selected: Yes ");
+                licence = true;
+            } else if (choice == 2){        //No
+                System.out.println("Selected: No ");
+                licence = false;
+            } else {                        //Exception
+                System.out.println("Please enter [1] - Yes or [2] - No");
+            }
+        }   while (choice <1 || choice > 2);
+        return licence;
+    }
+
+    public static boolean askLaptop() {
+        boolean laptop = false;
+        int choice;
+        do {
+            System.out.println("Possesses a Company-owned Laptop:\n[1] - Yes\n[2] - No");
+            choice = TestRun.intInputMethod();
+            if (choice == 1){               //Yes
+                System.out.println("Selected: Yes ");
+                laptop = true;
+            } else if (choice == 2){        //No
+                System.out.println("Selected: No ");
+                laptop = false;
+            } else {                        //Exception
+                System.out.println("Please enter [1] - Yes or [2] - No");
+            }
+        }   while (choice <1 || choice > 2);
+        return laptop;
+    }
+
+    //Metoden som avslutar
     public static void exit() {
         System.out.println("Thank you for using EMS!");
     }

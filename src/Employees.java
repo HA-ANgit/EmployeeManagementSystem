@@ -1,27 +1,18 @@
 public class Employees{
-    protected String firstName;
-    protected String lastName;
-    protected String gender;
-    protected String department;
-    protected String role;
-    protected int dateOfBirth;  //Detta önskas skapa med en int array om möjligt till 3 int[][][]-värden (Y/M/D)
-    protected int employeeID;
+    private String firstName;
+    private String lastName;
+    private String gender;
+    private String department;
+    private String role;
+    private int dateOfBirth;  //Detta önskas skapa med en int array om möjligt till 3 int[][][]-värden (Y/M/D)
+    private int employeeID;
     protected int salary;
-
-    public void licence(){
-        System.out.println("Possesses a driving licence");
-    }
-
-    public void laptop(){
-        System.out.println("Possesses a laptop");
-    }
-
-    public void coFounder(){
-        System.out.println("Is a co-founder");
-    }
+    protected boolean licence;
+    protected boolean laptop;
+    protected boolean coFounder;
 
     //Constructor som skapar objektet Employees
-    public Employees(String firstName, String lastName, String gender, String department, String role, int dateOfBirth, int employeeID, int salary) {
+    public Employees(String firstName, String lastName, String gender, String department, String role, int dateOfBirth, int employeeID, int salary, boolean licence, boolean laptop, boolean coFounder) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -30,6 +21,9 @@ public class Employees{
         this.dateOfBirth = dateOfBirth;
         this.employeeID = employeeID;
         this.salary = salary;
+        this.licence = licence;
+        this.licence = laptop;
+        this.licence = coFounder;
     }
     public double getBonus(int salary){ //Allmän bonus för employees
         return .01 * salary;
@@ -102,6 +96,30 @@ public class Employees{
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public boolean getLicence() {
+        return licence;
+    }
+
+    public void setLicence(boolean licence) {
+        this.licence = licence;
+    }
+
+    public boolean getLaptop() {
+        return laptop;
+    }
+
+    public void setLaptop(boolean laptop) {
+        this.laptop = laptop;
+    }
+
+    public boolean getCoFounder() {
+        return coFounder;
+    }
+
+    public void setCoFounder(boolean coFounder) {
+        this.coFounder = coFounder;
     }
 }
 
