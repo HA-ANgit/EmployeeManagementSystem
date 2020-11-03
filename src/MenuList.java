@@ -1,10 +1,10 @@
 public class MenuList {
 
-    public static void welcome(){
+    public static void welcome(){   //Slutgiltig version av EMS Version 1.6
         System.out.println("\n\n\t\t####################################################\t\t");
         System.out.println("\t\t##########  ---  ===  FIXON AB  ===  ---  ##########\t\t");
         System.out.println("\t\t####################################################\t\t");
-        System.out.println("\t\t==  Welcome to EmployeeManagementSystem (0.1001)  ==\n");
+        System.out.println("\t\t==  Welcome to EmployeeManagementSystem (1.6001)  ==\n");
     }
 
     public static void menuMain(){   //Main-menyn som presenterar alternativ
@@ -94,7 +94,7 @@ public class MenuList {
                 menuMain();
                 break;
             default:
-                System.out.println("Please enter [1] - [10]");
+                System.out.println("Please enter [1] - [12]");
                 menuManage();
         }
     }
@@ -156,7 +156,7 @@ public class MenuList {
             } else {                        //Exception
                 System.out.println("Please enter [1] or [2]");
             }
-        }   while (choice <1 || choice > 3);
+        }   while (choice <1 || choice > 2);
         return department;
     }
 

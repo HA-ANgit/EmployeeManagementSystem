@@ -1,4 +1,4 @@
-public class Programmers extends Employees implements Specifics{
+public class Programmers extends Employees implements Languages{
 
     public Programmers(String firstName, String lastName, String gender, String department, String role, int dateOfBirth, int employeeID, int salary, boolean licence, boolean laptop, boolean coFounder) {
         super(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary, licence, laptop, coFounder);
@@ -19,6 +19,12 @@ public class Programmers extends Employees implements Specifics{
     public static boolean laptop(boolean ProChoice2){
         return ProChoice2;
     }
+
+    @Override
+    public void language() {
+        System.out.println("Languages knowledge for Programmer# JAVA: mandatory \t\t| DART: mandatory \t\t| C++: useful\t\t| JAVASCRIPT: useful");
+    }
+
     @Override
     public void coFounder(){
         System.out.println("Is a co-founder");

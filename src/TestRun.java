@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TestRun {
+public class TestRun { //Slutgiltig version av EMS Version 1.6
     static Scanner sc = new Scanner(System.in);
     static boolean loop = true;
 
@@ -27,7 +27,7 @@ public class TestRun {
             return userInput;
         } catch (Exception allExceptions){
             System.out.println("\t\nError: please insert a valid number from the menu shown");
-            return userInput = 0;
+            return userInput = 20;
         }
     }
     //Detta är String-metoden för inmatning i menyerna

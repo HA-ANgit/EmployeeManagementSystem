@@ -1,4 +1,5 @@
-interface Specifics {
+public interface Languages {
+    public void language(); //Info om anställds språk-krav (Programmeringsspråk samt skrift-språk)
 
     public static boolean licence()      //Possess a driving licence
     { return false; }

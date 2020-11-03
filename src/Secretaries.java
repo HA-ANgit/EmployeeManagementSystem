@@ -1,4 +1,4 @@
-public class Secretaries extends Employees implements Specifics{
+public class Secretaries extends Employees implements Languages{
 
     public Secretaries(String firstName, String lastName, String gender, String department, String role, int dateOfBirth, int employeeID, int salary, boolean licence, boolean laptop, boolean coFounder) {
         super(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary, licence, laptop, coFounder);
@@ -19,6 +19,12 @@ public class Secretaries extends Employees implements Specifics{
     public static boolean laptop(boolean SecChoice2){
         return SecChoice2;
     }
+
+    @Override
+    public void language() {
+        System.out.println("Languages used by Secretary# ENGLISH: mainly \t\t| SWEDISH: secondary");
+    }
+
     @Override
     public void coFounder(){
         System.out.println("Is a co-founder");

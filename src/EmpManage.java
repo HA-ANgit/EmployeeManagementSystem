@@ -20,6 +20,12 @@ public class EmpManage {
         Employees e13 = new Secretaries("Tim", "Pålsson        ", "Male", "Management", "Secretary\t\t\t", 890221, UniqueID.nextID(), 42000,false, true, false);
         Employees e14 = new Technicians("Olga", "Debrawski    ", "Female", "Development", "Technician\t\t", 950406, UniqueID.nextID(), 52300,false, false, true);
 
+        e1.setCoFounder(true);
+        e2.setCoFounder(true);
+        e4.setCoFounder(true);
+        e14.setCoFounder(true);
+
+
         employees.add(e1);
         employees.add(e2);
         employees.add(e3);
@@ -68,6 +74,7 @@ public class EmpManage {
         } else if (role.equalsIgnoreCase("Secretary")){
             Secretaries i = new Secretaries(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary,false, false, false);
             System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tDebug class: " + i.getClass());
+            i.language();
             i.about();
             employees.add(i);
         } else if (role.equalsIgnoreCase("Technician")){
@@ -78,6 +85,7 @@ public class EmpManage {
         } else if (role.equalsIgnoreCase("Programmer")){
             Programmers i = new Programmers(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary,false, false, false);
             System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tDebug class: " + i.getClass());
+            i.language();
             i.about();
             employees.add(i);
         } else {
@@ -221,7 +229,6 @@ public class EmpManage {
             }
         }
         MenuList.menuManage();
-
     }
 
     //Metoden som söker anställd efter förnamn
@@ -273,13 +280,14 @@ public class EmpManage {
                 System.out.println("Any specifics is added below: \n");
                 System.out.println("Driving Licence: " + employees.get(i).getLicence() + " | Laptop: " + employees.get(i).getLaptop() + " | Extra notes: " + employees.get(i).coFounder);
             }
-            if (employees.get(i).getCoFounder()){
-                System.out.println(employees.get(i).coFounder);
+            if (employees.get(i).getEmployeeID() == 1 || employees.get(i).getEmployeeID() == 2 || employees.get(i).getEmployeeID() == 4 || employees.get(i).getEmployeeID() == 14){
+                System.out.println("Note: " + employees.get(i).getFirstName() + " is a Co-Founder.");
             }
         }
         MenuList.menuManage();
     }
 
+    //Metoden som uppdaterar eller adderar specifikationer för anställda
     public static void addSpecifics(){
         System.out.println("Search Employee by ID to add Specifics: ");
         int iD = TestRun.intInputMethod();

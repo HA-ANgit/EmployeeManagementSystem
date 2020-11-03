@@ -4,7 +4,7 @@ public class Employees{
     private String gender;
     private String department;
     private String role;
-    private int dateOfBirth;  //Detta önskas skapa med en int array om möjligt till 3 int[][][]-värden (Y/M/D)
+    private int dateOfBirth;  //Detta önskas skapas med en int array i framtiden []-värden (Y/M/D)
     private int employeeID;
     protected int salary;
     protected boolean licence;
