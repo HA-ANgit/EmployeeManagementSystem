@@ -61,20 +61,24 @@ public class EmpManage {
         int salary = TestRun.intInputMethod();
         System.out.println("Success! New " + role + " has been added to your database.");
         if (role.equalsIgnoreCase("Manager")){
-            Employees i = new Managers(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary, false, false, false);
+            Managers i = new Managers(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary, false, false, false);
             System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tDebug class: " + i.getClass());
+            i.about();
             employees.add(i);
         } else if (role.equalsIgnoreCase("Secretary")){
-            Employees i = new Secretaries(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary,false, false, false);
+            Secretaries i = new Secretaries(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary,false, false, false);
             System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tDebug class: " + i.getClass());
+            i.about();
             employees.add(i);
         } else if (role.equalsIgnoreCase("Technician")){
-            Employees i = new Technicians(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary,false, false, false);
+            Technicians i = new Technicians(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary,false, false, false);
             System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tDebug class: " + i.getClass());
+            i.about();
             employees.add(i);
         } else if (role.equalsIgnoreCase("Programmer")){
-            Employees i = new Programmers(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary,false, false, false);
+            Programmers i = new Programmers(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary,false, false, false);
             System.out.println("Name: " + i.getFirstName() + " " + i.getLastName() + "\tGender: " + i.getGender() + "\tDepartment: " + i.getDepartment() + "\tRole: " + i.getRole() + "\t\t\tDate of birth: " + i.getDateOfBirth() + "\tEmployment ID: " + i.getEmployeeID() + "\tSalary: " + i.getSalary() + "\tDebug class: " + i.getClass());
+            i.about();
             employees.add(i);
         } else {
             Employees i = new Employees(firstName, lastName, gender, department, role, dateOfBirth, employeeID, salary, false, false, false);
@@ -303,5 +307,4 @@ public class EmpManage {
         }
         MenuList.menuManage();
     }
-
 }

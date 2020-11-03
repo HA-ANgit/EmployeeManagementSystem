@@ -12,4 +12,6 @@ interface Specifics {
 
     public void coFounder();    //Is a co-founder
 
+    public void about(); //Information via Interface
+
 }

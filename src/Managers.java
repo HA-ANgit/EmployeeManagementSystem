@@ -18,8 +18,13 @@ public class Managers extends Employees implements Specifics{
     public static boolean laptop(boolean manChoice2){
         return manChoice2;
     }
-
+    @Override
     public void coFounder(){
         System.out.println("Is a co-founder");
+    }
+
+    @Override
+    public void about() {
+        System.out.println("ABOUT: A manager is a person who is responsible for a part of a company, i.e., they 'manage' the company.");
     }
 }

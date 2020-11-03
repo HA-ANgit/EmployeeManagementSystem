@@ -19,8 +19,12 @@ public class Secretaries extends Employees implements Specifics{
     public static boolean laptop(boolean SecChoice2){
         return SecChoice2;
     }
-
+    @Override
     public void coFounder(){
         System.out.println("Is a co-founder");
+    }
+    @Override
+    public void about() {
+        System.out.println("ABOUT: A secretary is a person who is employed to help in an office, and help the people in charge of the office do their job. By definition, the main task of a secretary is to provide different services required by the staff.");
     }
 }

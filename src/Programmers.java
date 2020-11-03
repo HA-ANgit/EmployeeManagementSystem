@@ -19,8 +19,12 @@ public class Programmers extends Employees implements Specifics{
     public static boolean laptop(boolean ProChoice2){
         return ProChoice2;
     }
-
+    @Override
     public void coFounder(){
         System.out.println("Is a co-founder");
+    }
+    @Override
+    public void about() {
+        System.out.println("ABOUT: A programmer is an individual that writes/creates computer software or applications by giving the computer specific programming instructions.");
     }
 }

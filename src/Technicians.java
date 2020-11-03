@@ -19,8 +19,13 @@ public class Technicians extends Employees implements Specifics {
     public static boolean laptop(boolean TechChoice2){
         return TechChoice2;
     }
-
+    @Override
     public void coFounder(){
         System.out.println("Is a co-founder");
+    }
+
+    @Override
+    public void about() {
+        System.out.println("ABOUT: The definition of a technician is a person whose job or training involves a specific technical process, or is someone skilled or trained in a specific art or craft.");
     }
 }
