@@ -57,8 +57,8 @@ public class EmpStat extends EmpManage{
         double mS = male.size();
         double fS = female.size();
         double eS = employees.size();
-        System.out.println("Male percentage: \t" + (mS/eS)*100);
-        System.out.println("Female percentage: \t" + (fS/eS)*100);
+        System.out.println("Male percentage: \t" + (mS/eS)*100 + " %");
+        System.out.println("Female percentage: \t" + (fS/eS)*100 + " %");
         MenuList.menuStats();
     }
 
@@ -76,8 +76,8 @@ public class EmpStat extends EmpManage{
         double mS = male.size();//Management.size
         double fS = female.size();//Development.size
         double eS = employees.size();
-        System.out.println("Management percentage: \t" + (mS / eS) * 100);
-        System.out.println("Development percentage: \t" + (fS / eS) * 100);
+        System.out.println("Management percentage: \t" + (mS / eS) * 100 + " %");
+        System.out.println("Development percentage: \t" + (fS / eS) * 100 + " %");
         MenuList.menuStats();
     }
 }

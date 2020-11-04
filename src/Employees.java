@@ -25,7 +25,7 @@ public class Employees{
         this.licence = laptop;
         this.licence = coFounder;
     }
-    public double getBonus(int salary){ //Allmän bonus för employees
+    public double getBonus(int salary){ //Allmän bonus för ospecificerad employees
         return .01 * salary;
     }
 
